@@ -17,8 +17,6 @@ function ClerkWithRouter({ children }: { children: ReactNode }) {
   return (
     <ClerkProvider
       publishableKey={CLERK_KEY}
-      domain="novacapmanagement.com"
-      isSatellite
       routerPush={(to) => navigate(to)}
       routerReplace={(to) => navigate(to, { replace: true })}
     >
@@ -35,7 +33,7 @@ if (!rootElement) {
 }
 
 ReactDOM.createRoot(rootElement).render(
-  <BrowserRouter>
+  <BrowserRouter basename="/dealdesk">
     <ClerkWithRouter>
       <App />
     </ClerkWithRouter>
